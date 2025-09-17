@@ -1,7 +1,6 @@
 #!/bin/sh
 
-# Script to install/update the Floorp Browser xbps-src template
-#
+# A script to install/update the Floorp Browser xbps-src template.
 # Requirements: xbps-src, curl, sed, xtools
 #
 # You have to set the XBPS_DISTDIR environment variable.

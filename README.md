@@ -16,7 +16,7 @@ The template and its files were originally created by [mobinmob](https://codeber
 
 ## Alternative installation steps
 ### You can also update Floorp from these steps.
-1. Install xtools: `sudo xbps-install xtools`
+1. Install the packages: `sudo xbps-install curl sed xtools`
 2. Clone the void-packages repository: `git clone --depth 5 https://github.com/void-linux/void-packages`
 3. Clone this repository: `git clone https://github.com/Seremegu/Floorp-VoidLinux`
 4. Copy the 'floorp' folder to void-packages/srcpkgs: `cp -r Floorp-VoidLinux/floorp void-packages/srcpkgs`
