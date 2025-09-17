@@ -1,0 +1,30 @@
+# Template file for 'floorp'
+pkgname=floorp
+version=v12.2.0
+revision=1
+wrksrc="${pkgname}-${version}"
+archs="x86_64"
+short_desc="A Firefox-based browser that respects your privacy."
+maintainer="Seremegu <Sere@sere.nekoweb.org>"
+license="MPL-2.0"
+homepage="https://floorp.app"
+changelog="https://blog.floorp.app/en/release/G${version}.html"
+distfiles="https://github.com/Floorp-Projects/Floorp/releases/download/${version}/floorp-linux-amd64.tar.xz"
+checksum=53e3a9a3929c1a3454d65152f4926bbd899c0b1adc8f26e83a00421d205413ac
+nopie=yes
+meta=yes
+
+
+do_install() {
+	vmkdir usr/lib/floorp
+	vcopy "*" usr/lib/floorp
+	# Create symlink in path
+	vmkdir usr/bin
+	ln -s /usr/lib/floorp/floorp "${DESTDIR}/usr/bin/floorp"
+	# Copy the icon and .desktop file
+	vmkdir usr/share/pixmaps
+	vinstall "${DESTDIR}/usr/lib/floorp/browser/chrome/icons/default/default128.png" 644 \
+usr/share/pixmaps/ floorp.png
+	vmkdir usr/share/applications
+	vinstall "${FILESDIR}/floorp.desktop" 644 usr/share/applications/
+}
